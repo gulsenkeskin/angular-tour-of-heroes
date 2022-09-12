@@ -27,8 +27,14 @@ export class HeroesComponent implements OnInit {
     this.selectedHero=hero;
   }
 
-  getHeroes(){
-    this.heroes=this.heroService.getHeroes();
+  //eşzamanalı //uzak bir sunucudan istekte bulunulduğunda çalışmaz!
+  // getHeroes(){
+  //   this.heroes=this.heroService.getHeroes();
+  // }
+
+  //eşzamansız //sunucudan veri çekerken çalışır
+  getHeroes():void{
+    this.heroService.getHeroes().subscribe(heroes=>this.heroes=this.heroes);
   }
 
 }
