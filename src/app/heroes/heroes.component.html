@@ -10,3 +10,13 @@
   </div>
 
   <!-- [(ngModel)]Angular'ın iki yönlü veri bağlama sözdizimidir. Kullanabilmek için Forms module ün app.modele.ts e eklenmesi gerekir -->
+
+  <h2>My Heroes</h2>
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes">
+        <button type="button">
+            <span class="badge">{{hero.id}}</span>
+            <span class="name">{{hero.name}}</span>
+        </button>
+    </li>
+  </ul>
