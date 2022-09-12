@@ -15,10 +15,13 @@ export class HeroService {
   //   return HEROES;
   // }
 
-  //asenkron fonk
+  //asynchronous signature.
   getHeroes():Observable<Hero[]>{
-    const heroes=of(HEROES);
+    const heroes = of(HEROES);
+    //servis içi servis kullanımı:
+    this.messageService.add('HeroService: fetched heroes');
     return heroes;
+  
 
     // of(HEROES), mock heroes dizisi olan tek bir değer yayan bir Observable<Hero[]> döndürür.
   }
