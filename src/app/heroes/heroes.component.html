@@ -12,7 +12,7 @@
   <!-- [(ngModel)]Angular'ın iki yönlü veri bağlama sözdizimidir. Kullanabilmek için Forms module ün app.modele.ts e eklenmesi gerekir -->
 
 
-  <div *ngIf="selectedHero">
+  <!-- <div *ngIf="selectedHero">
     <h2>{{selectedHero.name |uppercase}} Details</h2>
     <div>id: {{selectedHero.id}}</div>
     <div>
@@ -21,7 +21,7 @@
         
     </div>
 
-</div>
+</div> -->
 
   <h2>My Heroes</h2>
   <ul class="heroes">
@@ -34,3 +34,4 @@
   </ul>
 
 
+  <app-hero-detail [hero]="selectedHero"></app-hero-detail>
