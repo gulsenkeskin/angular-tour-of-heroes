@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
-import { HEROES } from '../mock-heroes';
+import { HeroService } from '../hero.service';
 @Component({
   selector: 'app-heroes', //bileşenin seçicisi
   templateUrl: './heroes.component.html', //şablon dosya konumu
@@ -8,22 +8,27 @@ import { HEROES } from '../mock-heroes';
 })
 export class HeroesComponent implements OnInit {
   
-  heroes=HEROES;
+  heroes:Hero[]=[];
 
   hero: Hero = {
     id: 1,
     name: 'Windstorm'
   };
 
-  constructor() { }
+  constructor(private heroService:HeroService) { }
 
   //bileşen oluşturulduktan kısa bir süre sonra çağrılır
   ngOnInit(): void {
+    this.getHeroes();
   }
 
   selectedHero?: Hero;
   onSelect(hero:Hero):void{
     this.selectedHero=hero;
+  }
+
+  getHeroes(){
+    this.heroes=this.heroService.getHeroes();
   }
 
 }
