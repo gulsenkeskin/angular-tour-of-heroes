@@ -1,15 +1,27 @@
 
 <!-- | -> pipelar stringleri, para birimi tutarlarını, tarihleri ​​ve diğer görüntüleme verilerini biçimlendirmenin iyi bir yoludur. -->
-<h2>{{hero.name | uppercase}} Details</h2>
+<!-- <h2>{{hero.name | uppercase}} Details</h2>
 <div><span>id:</span>{{hero.id}}</div>
-<div><span>name:</span>{{hero.name}}</div> 
+<div><span>name:</span>{{hero.name}}</div>  -->
 
-<div>
+<!-- <div>
     <label for="name">Hero name: </label>
     <input id="name" [(ngModel)]="hero.name" placeholder="name">
-  </div>
+  </div> -->
 
   <!-- [(ngModel)]Angular'ın iki yönlü veri bağlama sözdizimidir. Kullanabilmek için Forms module ün app.modele.ts e eklenmesi gerekir -->
+
+
+  <div *ngIf="selectedHero">
+    <h2>{{selectedHero.name |uppercase}} Details</h2>
+    <div>id: {{selectedHero.id}}</div>
+    <div>
+        <label for="hero-name"> Hero name: </label>
+        <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+        
+    </div>
+
+</div>
 
   <h2>My Heroes</h2>
   <ul class="heroes">
@@ -20,3 +32,5 @@
         </button>
     </li>
   </ul>
+
+
