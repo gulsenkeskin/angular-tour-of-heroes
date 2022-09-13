@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Hero} from './hero';
-import {HEROES} from './mock-heroes';
-import { Observable,of } from 'rxjs';
+import { Hero } from './hero';
+import { HEROES } from './mock-heroes';
+import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 
 @Injectable({
@@ -9,21 +9,22 @@ import { MessageService } from './message.service';
 })
 export class HeroService {
 
-  constructor(private messageService:MessageService) { }
+  constructor(private messageService: MessageService) { }
 
   // getHeroes():Hero[]{
   //   return HEROES;
   // }
 
   //asynchronous signature.
-  getHeroes():Observable<Hero[]>{
+  getHeroes(): Observable<Hero[]> {
+
+    //of(HEROES), sahte kahramanlar dizisi olan tek bir değer yayan bir Observable<Hero[]> döndürür.
     const heroes = of(HEROES);
+
     //servis içi servis kullanımı:
     this.messageService.add('HeroService: fetched heroes');
     return heroes;
-  
 
-    // of(HEROES), mock heroes dizisi olan tek bir değer yayan bir Observable<Hero[]> döndürür.
   }
 }
 

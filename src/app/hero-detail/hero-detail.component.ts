@@ -4,7 +4,7 @@ import { Hero } from '../hero';
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.css']
+  styleUrls: ['../app.component.css']
 })
 export class HeroDetailComponent implements OnInit {
 
@@ -13,7 +13,8 @@ export class HeroDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @Input() hero?:Hero;
+  @Input() hero?:Hero; //Hero özelliğini harici HeroesComponent tarafından bağlanmaya uygun hale getirmek için @Input dekoratörünü kullanırız
+
 
   //bu component hero özelliği aracılığıyla bir hero nesnesi alır ve onu görüntüler
 

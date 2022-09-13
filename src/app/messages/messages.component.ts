@@ -9,7 +9,7 @@ export class MessagesComponent implements OnInit {
 
   //template de buna bağlanılacağı için messageService public olmalıdır
   //angular yalnızca public component özelliklerine bağlanır
-  constructor(public messageService:MessageService) { }
+  constructor(public messageService: MessageService) { }
 
   ngOnInit(): void {
   }
