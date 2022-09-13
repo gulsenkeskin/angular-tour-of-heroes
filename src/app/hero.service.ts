@@ -76,12 +76,27 @@ export class HeroService {
     }
   */
 
-  //?server'a get isteği yapıyorMUŞ örneği :D
+  /** GET hero by id. Will 404 if id not found */
   getHero(id: number): Observable<Hero> {
-    const hero = HEROES.find(h => h.id === id)!;
-    this.messageService.add(`HeroService: fetched hero id=${id}`);
-    return of(hero); //of heroyu observable olarak döndürür
+    const url = `${this.heroesUrl}/${id}`;
+    return this.http.get<Hero>(url).pipe(
+      tap(_ => this.log(`fetched hero id=${id}`)),
+      catchError(this.handleError<Hero>(`gerHero id=${id}`))
+    )
   }
+
+
+
+
+
+  // //?server'a get isteği yapıyorMUŞ örneği :D
+  //* getHero(id: number): Observable<Hero> {
+  //*   const hero = HEROES.find(h => h.id === id)!;
+  //*   this.messageService.add(`HeroService: fetched hero id=${id}`);
+  //*   return of(hero); //of heroyu observable olarak döndürür
+  //* }
+
+
 
 }
 
