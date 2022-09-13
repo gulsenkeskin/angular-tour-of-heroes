@@ -5,7 +5,7 @@ import { MessageService } from '../message.service';
 @Component({
   selector: 'app-heroes', //bileşenin seçicisi
   templateUrl: './heroes.component.html', //şablon dosya konumu
-  styleUrls: ['../app.component.css']
+  styleUrls: ['./heroes.component.css']
   //bileşene özel css stil konumu 
 })
 export class HeroesComponent implements OnInit {
