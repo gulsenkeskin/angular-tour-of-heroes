@@ -85,16 +85,24 @@ export class HeroService {
     )
   }
 
-
-
-
-
   // //?server'a get isteği yapıyorMUŞ örneği :D
   //* getHero(id: number): Observable<Hero> {
   //*   const hero = HEROES.find(h => h.id === id)!;
   //*   this.messageService.add(`HeroService: fetched hero id=${id}`);
   //*   return of(hero); //of heroyu observable olarak döndürür
   //* }
+
+  /** PUT: update the hero on the server */
+  updateHero(hero: Hero): Observable<any> {
+    return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
+      tap(_ => this.log(`updated hero id=${hero.id}`)),
+      catchError(this.handleError<any>('updateHero'))
+    );
+  }
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
 
 
