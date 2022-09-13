@@ -24,11 +24,18 @@ export class HeroService {
     this.messageService.add(`HeroService: ${message}`);
   }
 
+
+
   //?http client ile kahramanları listelemek //sahte sunucudan veri listeleme
+
+  //?HeroService yöntemleri, observable değerlerin akışından yararlanır ve log() yöntemini kullanarak sayfanın altındaki mesaj alanına bir mesaj gönderir. RxJS tap() operatörü, gözlemlenebilir değerlere bakarak, bu değerlerle bir şeyler yaparak ve bunları ileterek bu yeteneği sağlar. tap() geri çağrısı, değerlerin kendilerine erişmez.
+
   getHeroes(): Observable<Hero[]> {
     //!hata yakalama için cath error pipe'ının kullanımı
     return this.http.get<Hero[]>(this.heroesUrl).pipe(
-      catchError(this.handleError<Hero[]>('getHeroes', []))
+      tap(_ => this.log('fetched heroes')),
+      catchError(this.handleError<Hero[]>('getHeroes', [])
+      )
     );
 
     //?catchError() operatörü, başarısız olan bir Observable'ı yakalar. Operatör daha sonra hatayı hata işleme fonksiyonuna iletir.
