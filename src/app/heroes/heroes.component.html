@@ -34,6 +34,13 @@
   </ul>
 
 
+  <div>
+    <label for="new-hero">Hero name:</label>
+    <input id="new-hero" #heroName/>
+
+    <!--inputun değerini add() methoduna iletir ve ardından inputu temizler-->
+    <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">Add hero</button>
+  </div>
 
   
   <!-- <ul class="heroes">
