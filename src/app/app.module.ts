@@ -9,6 +9,9 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,10 +21,16 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent
   ],
   imports: [
-    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    //HttpClientInMemoryWebApiModule modülü HTTP isteklerini engeller ve simüle edilmiş sunucu yanıtlarını döndürür.
+    //Gerçek sunucu istekleri almaya hazır olduğunda kaldırın.
+    //forRoot() yapılandırma yöntemi, memory veritabanını hazırlayan bir InMemoryDataService sınıfını alır.
+
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }),
   ],
   providers: [],
   bootstrap: [AppComponent]
