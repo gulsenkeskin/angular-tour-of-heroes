@@ -31,6 +31,11 @@ export class HeroSearchComponent implements OnInit {
       distinctUntilChanged(),
       // terim her değiştiğinde searchHeroes methodu çağrılır
       switchMap((term: string) => this.heroService.searchHeroes(term)),
+
+      //switchMap() çönceki arama sonuçlarını iptal eder ve en son arama sonucunu döndürür
+
+      //Önceki bir searchHeroes() Observable'ı iptal etmek, aslında bekleyen bir HTTP isteğini iptal etmez. İstenmeyen sonuçlar uygulama kodunuza ulaşmadan atılır.
+
     );
   }
 
