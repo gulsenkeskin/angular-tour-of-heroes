@@ -42,6 +42,7 @@ export class HeroService {
     }
   */
 
+  //server'a get isteği yapıyorMUŞ örneği :D
   getHero(id: number): Observable<Hero> {
     const hero = HEROES.find(h => h.id === id)!;
     this.messageService.add(`HeroService: fetched hero id=${id}`);
